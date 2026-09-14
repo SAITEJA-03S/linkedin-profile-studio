@@ -151,7 +151,7 @@ export function calculateProfileScore(profile) {
     });
   }
 
-  totalScore = breakdown.basics + breakdown.headline + breakdown.about + breakdown.experience + breakdown.skills;
+  const totalScore = breakdown.basics + breakdown.headline + breakdown.about + breakdown.experience + breakdown.skills;
 
   return {
     totalScore: Math.min(100, Math.max(0, totalScore)),
