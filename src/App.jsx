@@ -12,18 +12,24 @@ import ExportModal from './components/ExportModal';
 import { PRESET_PROFILES } from './data/presetProfiles';
 import { calculateProfileScore } from './utils/scoreCalculator';
 
-const LOCAL_STORAGE_KEY = 'linkedin_profile_studio_data_v2';
+const LOCAL_STORAGE_KEY = 'linkedin_profile_studio_data_v3';
 
 export default function App() {
   const [profile, setProfile] = useState(() => {
     try {
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.name === 'SAITEJA POLU') {
+          return parsed;
+        }
+      }
     } catch (e) {
       console.error('Failed to load saved profile state', e);
     }
     return PRESET_PROFILES.saiteja_polu;
   });
+
 
   const [activeTab, setActiveTab] = useState('headline');
   const [isExportOpen, setIsExportOpen] = useState(false);
