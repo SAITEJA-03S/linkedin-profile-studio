@@ -22,7 +22,7 @@ export default function App() {
     } catch (e) {
       console.error('Failed to load saved profile state', e);
     }
-    return PRESET_PROFILES.software_engineer;
+    return PRESET_PROFILES.saiteja_polu;
   });
 
   const [activeTab, setActiveTab] = useState('headline');
